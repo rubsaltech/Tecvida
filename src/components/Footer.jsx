@@ -1,0 +1,60 @@
+import { useLanguage } from '../i18n/LanguageContext';
+
+export default function Footer() {
+  const { t } = useLanguage();
+  const year = new Date().getFullYear();
+
+  const links = [
+    { id: 'home', label: t('nav.home') },
+    { id: 'about', label: t('nav.about') },
+    { id: 'services', label: t('nav.services') },
+    { id: 'contact', label: t('nav.contact') },
+  ];
+
+  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+
+  return (
+    <footer className="border-t border-border bg-bg-alt py-12">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+        <div>
+          <img src="/logo/Logo.png" alt="TecVida" className="h-10 w-auto" />
+          <p className="mt-4 max-w-xs text-sm text-fg-muted">{t('footer.tagline')}</p>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-bold uppercase tracking-wide text-fg-muted">
+            {t('footer.quickLinks')}
+          </h4>
+          <ul className="mt-4 space-y-2">
+            {links.map((link) => (
+              <li key={link.id}>
+                <button
+                  type="button"
+                  onClick={() => scrollTo(link.id)}
+                  className="text-sm text-fg-muted transition-colors hover:text-brand-orange"
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-bold uppercase tracking-wide text-fg-muted">
+            {t('footer.contactTitle')}
+          </h4>
+          <ul className="mt-4 space-y-2 text-sm text-fg-muted">
+            <li>C/ Santa Llúcia, 27, 08788 Vilanova del Camí</li>
+            <li>641 603 972 · 936 120 425</li>
+            <li>vnova@tecvida.es</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-7xl border-t border-border px-4 pt-6 text-center text-sm text-fg-muted sm:px-6 lg:px-8">
+        © {year} TecVida. {t('footer.rights')}
+      </div>
+    </footer>
+  );
+}

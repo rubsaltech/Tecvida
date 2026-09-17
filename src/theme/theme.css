@@ -1,0 +1,78 @@
+/*
+ * TecVida — single source of truth for every colour used in the app.
+ * Change a value here and it reflects across the whole site.
+ * Light palette lives on :root; dark overrides live on [data-theme="dark"].
+ */
+
+:root {
+  /* Brand */
+  --color-brand-orange: #f5821f;
+  --color-brand-orange-dark: #d9690a;
+  --color-brand-blue: #1e4a9c;
+  --color-brand-blue-dark: #123268;
+
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #eef1f8;
+  --color-border: #e2e6ef;
+
+  /* Text */
+  --color-text: #16213a;
+  --color-text-muted: #545f78;
+  --color-text-inverted: #ffffff;
+
+  /* Feedback / accents */
+  --color-success: #1c8a52;
+  --color-overlay: rgba(15, 23, 42, 0.55);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
+  --shadow-lg: 0 20px 48px rgba(16, 24, 40, 0.14);
+}
+
+[data-theme='dark'] {
+  --color-brand-orange: #ff9b3d;
+  --color-brand-orange-dark: #f5821f;
+  --color-brand-blue: #5b8def;
+  --color-brand-blue-dark: #3a6bc9;
+
+  --color-bg: #0c1220;
+  --color-bg-alt: #0a0e18;
+  --color-surface: #131b2e;
+  --color-surface-alt: #1b2540;
+  --color-border: #26314d;
+
+  --color-text: #e9edf7;
+  --color-text-muted: #a3adc7;
+  --color-text-inverted: #0c1220;
+
+  --color-success: #3ddc91;
+  --color-overlay: rgba(4, 8, 18, 0.65);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* Map the CSS variables above onto Tailwind utilities (bg-brand-orange, text-fg, etc.) */
+@theme inline {
+  --color-brand-orange: var(--color-brand-orange);
+  --color-brand-orange-dark: var(--color-brand-orange-dark);
+  --color-brand-blue: var(--color-brand-blue);
+  --color-brand-blue-dark: var(--color-brand-blue-dark);
+
+  --color-bg: var(--color-bg);
+  --color-bg-alt: var(--color-bg-alt);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-border: var(--color-border);
+
+  --color-fg: var(--color-text);
+  --color-fg-muted: var(--color-text-muted);
+  --color-fg-inverted: var(--color-text-inverted);
+
+  --color-success: var(--color-success);
+}
