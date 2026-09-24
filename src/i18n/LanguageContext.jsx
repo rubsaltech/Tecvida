@@ -9,11 +9,10 @@ const SUPPORTED = Object.keys(dictionaries);
 const LanguageContext = createContext(null);
 
 function getInitialLanguage() {
-  if (typeof window === 'undefined') return 'en';
+  if (typeof window === 'undefined') return 'es';
   const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored && SUPPORTED.includes(stored)) return stored;
-  const browserLang = window.navigator.language?.slice(0, 2);
-  return SUPPORTED.includes(browserLang) ? browserLang : 'en';
+  return 'es';
 }
 
 function resolve(dictionary, path) {

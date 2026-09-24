@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Footer() {
@@ -5,13 +6,11 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   const links = [
-    { id: 'home', label: t('nav.home') },
-    { id: 'about', label: t('nav.about') },
-    { id: 'services', label: t('nav.services') },
-    { id: 'contact', label: t('nav.contact') },
+    { to: '/', label: t('nav.home') },
+    { to: '/about', label: t('nav.about') },
+    { to: '/services', label: t('nav.services') },
+    { to: '/contact', label: t('nav.contact') },
   ];
-
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <footer className="border-t border-border bg-bg-alt py-12">
@@ -27,14 +26,13 @@ export default function Footer() {
           </h4>
           <ul className="mt-4 space-y-2">
             {links.map((link) => (
-              <li key={link.id}>
-                <button
-                  type="button"
-                  onClick={() => scrollTo(link.id)}
+              <li key={link.to}>
+                <Link
+                  to={link.to}
                   className="text-sm text-fg-muted transition-colors hover:text-brand-orange"
                 >
                   {link.label}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>

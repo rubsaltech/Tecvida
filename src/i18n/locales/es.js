@@ -109,4 +109,9 @@ export default {
     quickLinks: 'Enlaces Rápidos',
     contactTitle: 'Contacto',
   },
+  notFound: {
+    title: 'Página no encontrada',
+    description: 'La página que buscas no existe o se ha movido.',
+    cta: 'Volver al Inicio',
+  },
 };

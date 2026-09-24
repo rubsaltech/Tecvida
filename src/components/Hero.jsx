@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 import { SmartphoneIcon, WrenchIcon, LaptopIcon, AccessoryIcon } from './icons';
 
@@ -5,13 +6,8 @@ export default function Hero() {
   const { t } = useLanguage();
   const stats = t('hero.stats');
 
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-
   return (
-    <section
-      id="home"
-      className="relative overflow-hidden bg-bg-alt pt-32 pb-20 sm:pt-40 sm:pb-28"
-    >
+    <section className="relative overflow-hidden bg-bg-alt pt-32 pb-20 sm:pt-40 sm:pb-28">
       <div
         className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full opacity-20 blur-3xl"
         style={{ background: 'var(--color-brand-orange)' }}
@@ -36,20 +32,18 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <button
-              type="button"
-              onClick={() => scrollTo('contact')}
+            <Link
+              to="/contact"
               className="rounded-full bg-brand-orange px-7 py-3.5 text-base font-semibold text-white shadow-md transition-transform hover:scale-[1.03] hover:bg-brand-orange-dark"
             >
               {t('hero.primaryCta')}
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollTo('services')}
+            </Link>
+            <Link
+              to="/services"
               className="rounded-full border-2 border-brand-blue px-7 py-3.5 text-base font-semibold text-brand-blue transition-colors hover:bg-brand-blue hover:text-white"
             >
               {t('hero.secondaryCta')}
-            </button>
+            </Link>
           </div>
 
           <dl className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">

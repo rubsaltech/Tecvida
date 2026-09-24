@@ -18,7 +18,7 @@ export default function Services() {
   const extras = t('services.extras');
 
   return (
-    <section id="services" className="bg-bg-alt py-20 sm:py-28">
+    <section className="bg-bg-alt pt-32 pb-20 sm:pt-40 sm:pb-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center rounded-full border border-brand-orange/30 bg-brand-orange/10 px-4 py-1.5 text-sm font-semibold text-brand-orange-dark">
